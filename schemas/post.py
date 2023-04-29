@@ -12,12 +12,22 @@ Post 테이블 schema
 
 class BasePost(BaseModel):
     user_name: str
-    ans_1: Optional[str]
-    ans_2: Optional[str]
-    ans_3: Optional[str]
-    ans_4: Optional[str]
-    ans_5: Optional[str]
+    ans_1: str
+    ans_2: str
+    ans_3: str
+    ans_4: str
+    ans_5: str
+    ans_6: str
+    ans_7: str
     keyword: Optional[str]
+    sum_1: Optional[str]
+    sum_2: Optional[str]
+    sum_3: Optional[str]
+    sum_4: Optional[str]
+    sum_5: Optional[str]
+    sum_6: Optional[str]
+    sum_7: Optional[str]
+
 
     class Config:
         orm_mode = True
@@ -37,6 +47,15 @@ class PatchPost(BaseModel):
     ans_3: Optional[str]
     ans_4: Optional[str]
     ans_5: Optional[str]
+    ans_6: Optional[str]
+    ans_7: Optional[str]
     keyword: Optional[str]
+    sum_1: Optional[str]
+    sum_2: Optional[str]
+    sum_3: Optional[str]
+    sum_4: Optional[str]
+    sum_5: Optional[str]
+    sum_6: Optional[str]
+    sum_7: Optional[str]
     class Config:
         orm_mode = True
