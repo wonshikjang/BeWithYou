@@ -10,4 +10,3 @@ alembic.ini
 
 # SQL files
 *.sql
-.env
