@@ -3,7 +3,7 @@ from sqlalchemy.dialects.mysql import TINYINT
 from sqlalchemy.orm import relationship
 from sqlalchemy.types import TIMESTAMP
 
-from ..core.db import Base
+from core.db import Base
 
 
 class Post(Base):

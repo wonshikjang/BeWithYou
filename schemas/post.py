@@ -12,12 +12,12 @@ Post 테이블 schema
 
 class BasePost(BaseModel):
     user_name: str
-    ans_1: str
-    ans_2: str
-    ans_3: str
-    ans_4: str
-    ans_5: str
-    keyword: str
+    ans_1: Optional[str]
+    ans_2: Optional[str]
+    ans_3: Optional[str]
+    ans_4: Optional[str]
+    ans_5: Optional[str]
+    keyword: Optional[str]
 
     class Config:
         orm_mode = True

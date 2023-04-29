@@ -1,11 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from .routers import (
+from routers import (
     user
 )
 
-from .core.db import Base, engine
+from core.db import Base, engine
 
 fastapi_app = FastAPI(title="BeWithYOU", debug=True)
 

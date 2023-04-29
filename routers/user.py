@@ -2,10 +2,10 @@ from fastapi import APIRouter, Depends, HTTPException
 from starlette.responses import Response
 from starlette.status import HTTP_204_NO_CONTENT
 
-from ..core.schema import RequestPage
-from ..core.utils import get_crud
-from ..models.user import Post
-from ..schemas import post
+from core.schema import RequestPage
+from core.utils import get_crud
+from models.user import Post
+from schemas import post
 
 router = APIRouter(
     prefix="/user",
