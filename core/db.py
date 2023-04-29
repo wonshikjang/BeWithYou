@@ -6,7 +6,6 @@ from os import environ
 
 #load_dotenv()
 
-
 SQLALCHEMY_DATABASE_URL = "mysql+pymysql://root:7569@svc.sel4.cloudtype.app:30322/bewithyou"
 
 # format : "사용하는db:/{username}:{password}@{host}:{port}/{db_name}"
