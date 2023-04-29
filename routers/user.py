@@ -14,7 +14,11 @@ router = APIRouter(
 """
 Post table CRUD
 """
-
+@router.post(
+    "/ai", name="User record 생성과 ai로 keyword 생성", description="User 테이블에 Record 생성합니다", response_model=post.ReadPost
+)
+async def ai_create_post(req: post.BasePost, crud=Depends(get_crud)):
+    return crud.ai_create_record(Post, req)
 
 @router.post(
     "/", name="User record 생성", description="User 테이블에 Record 생성합니다", response_model=post.ReadPost

@@ -3,7 +3,14 @@ import math
 from pydantic import BaseModel
 from sqlalchemy import func
 from sqlalchemy.orm import Session
+import openai
+import json
+from dotenv.main import load_dotenv
+from os import environ
 
+load_dotenv()
+
+openai.api_key = environ["API_KEY"]
 
 class CRUD:
     def __init__(self, session: Session) -> None:
@@ -21,6 +28,7 @@ class CRUD:
 
     def create_record(self, table: BaseModel, req: BaseModel):
         db_record = table(**req.dict())
+        print(db_record.ans_1)
         self.session.add(db_record)
         self.session.commit()
         self.session.refresh(db_record)
@@ -80,3 +88,32 @@ class CRUD:
 
         result = self.session.query(table).filter(*filters).all()
         return result
+
+    def ai_create_record(self, table: BaseModel, req: BaseModel):
+        db_record = table(**req.dict())
+        content = db_record.ans_1
+        touch = db_record.ans_1 + db_record.ans_3
+        completion = openai.ChatCompletion.create(
+        model = 'gpt-3.5-turbo',
+        messages = [
+            {
+                "role": "system",
+                "content": "당신은 텍스트를 카테고리로 분류하는 로봇입니다. 텍스트가 어떤 범주에 속하는지 분류해야 합니다. 글의 카테고리는 다음과 같습니다. 각 카테고리는 ,로 구분되어 있습니다.\
+                        [고민상담, 마음의 상처, 이별/실연, 속마음, 학업 스트레스, 직장 스트레스, 친구 갈등, 가족 갈등, 연애/결혼 문제, 우울함, 번아웃]\
+                        단 하나의 카테고리만 답변하세요. 어떠한 설명이나 단어도 붙이지 마세요.",
+            },
+            {
+                "role": "user",
+                "content": content,
+            },
+        ],
+        )
+
+        sent = completion['choices'][0]['message']['content']
+
+        print(sent)
+        db_record.keyword = sent
+        self.session.add(db_record)
+        self.session.commit()
+        self.session.refresh(db_record)
+        return db_record
