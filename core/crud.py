@@ -88,7 +88,7 @@ class CRUD:
 
         result = self.session.query(table).filter(*filters).all()
         return result
-
+    """
     def ai_create_record(self, table: BaseModel, req: BaseModel):
         db_record = table(**req.dict())
         content = db_record.ans_1
@@ -117,3 +117,4 @@ class CRUD:
         self.session.commit()
         self.session.refresh(db_record)
         return db_record
+    """
