@@ -20,13 +20,6 @@ class BasePost(BaseModel):
     ans_6: str
     ans_7: str
     keyword: Optional[str]
-    sum_1: Optional[str]
-    sum_2: Optional[str]
-    sum_3: Optional[str]
-    sum_4: Optional[str]
-    sum_5: Optional[str]
-    sum_6: Optional[str]
-    sum_7: Optional[str]
 
 
     class Config:
@@ -50,12 +43,5 @@ class PatchPost(BaseModel):
     ans_6: Optional[str]
     ans_7: Optional[str]
     keyword: Optional[str]
-    sum_1: Optional[str]
-    sum_2: Optional[str]
-    sum_3: Optional[str]
-    sum_4: Optional[str]
-    sum_5: Optional[str]
-    sum_6: Optional[str]
-    sum_7: Optional[str]
     class Config:
         orm_mode = True

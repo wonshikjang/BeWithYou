@@ -18,13 +18,6 @@ class Post(Base):
     ans_6 = Column(VARCHAR(1000))
     ans_7 = Column(VARCHAR(1000))
     keyword = Column(VARCHAR(100))
-    sum_1 = Column(VARCHAR(1000))
-    sum_2 = Column(VARCHAR(1000))
-    sum_3 = Column(VARCHAR(1000))
-    sum_4 = Column(VARCHAR(1000))
-    sum_5 = Column(VARCHAR(1000))
-    sum_6 = Column(VARCHAR(1000))
-    sum_7 = Column(VARCHAR(1000))
     create_time = Column(TIMESTAMP, nullable=False, server_default=text("CURRENT_TIMESTAMP"))
     update_time = Column(
         TIMESTAMP, nullable=False, server_default=text("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
