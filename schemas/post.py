@@ -20,6 +20,8 @@ class BasePost(BaseModel):
     ans_6: str
     ans_7: str
     keyword: Optional[str]
+    touch: Optional[str]
+    shared: Optional[int]
 
 
     class Config:
@@ -43,5 +45,7 @@ class PatchPost(BaseModel):
     ans_6: Optional[str]
     ans_7: Optional[str]
     keyword: Optional[str]
+    touch: Optional[str]
+    shared: Optional[int]
     class Config:
         orm_mode = True

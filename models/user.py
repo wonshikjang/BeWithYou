@@ -18,6 +18,8 @@ class Post(Base):
     ans_6 = Column(VARCHAR(1000))
     ans_7 = Column(VARCHAR(1000))
     keyword = Column(VARCHAR(100))
+    touch = Column(VARCHAR(1000))
+    shared = Column(TINYINT)
     create_time = Column(TIMESTAMP, nullable=False, server_default=text("CURRENT_TIMESTAMP"))
     update_time = Column(
         TIMESTAMP, nullable=False, server_default=text("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")

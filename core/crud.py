@@ -92,7 +92,7 @@ class CRUD:
     def ai_create_record(self, table: BaseModel, req: BaseModel):
         db_record = table(**req.dict())
         content = db_record.ans_1
-        touch = db_record.ans_1 + db_record.ans_3
+        situation = db_record.ans_1 + db_record.ans_3
         completion = openai.ChatCompletion.create(
         model = 'gpt-3.5-turbo',
         messages = [
@@ -109,10 +109,27 @@ class CRUD:
         ],
         )
 
-        sent = completion['choices'][0]['message']['content']
+        keyword = completion['choices'][0]['message']['content']
+        
+        completion_sit = openai.ChatCompletion.create(
+            model = 'gpt-3.5-turbo',
+            messages = [
+                {
+                    "role": "system",
+                    "content": "당신은 위로를 해주는 상담가입니다. 당신은 문제 상황에 대한 서술인 'message'의 내용과, 고민의 카테고리인 'category'에 맞는 감정적인 위로를 작성해주어야 합니다. 단, 해결책을 제시해주지 마세요. 위로는 최대 3문장으로 작성해주세요. 부드러운 말투로 작성해주세요.",
+                },
+                {
+                    "role": "user",
+                    "content": f"'message':'{situation}',\
+                    'category':{keyword}",
+                },
+            ],
+            temperature=0.6,
+        )
 
-        print(sent)
-        db_record.keyword = sent
+        touch = completion_sit['choices'][0]['message']['content']
+        db_record.keyword = keyword
+        db_record.touch = touch
         self.session.add(db_record)
         self.session.commit()
         self.session.refresh(db_record)
