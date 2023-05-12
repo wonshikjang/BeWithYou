@@ -4,6 +4,10 @@
 <img src="https://github.com/wonsikjang/BeWithYou/assets/45943068/59d8f0a2-c1cf-415b-a614-d292bb9800eb">
 </p>
 
+접속 주소: https://web-codewarrior-front-5o1j2llh32npme.sel4.cloudtype.app
+
+chatgpt 을 이용한 응답 카테고리 분류는 API 사용요금으로 인해 제한되어 있습니다.
+
 사용 프레임워크 : FastAPI + mysql
 
 ## 프로젝트 소개 
