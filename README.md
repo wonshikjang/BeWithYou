@@ -1,4 +1,4 @@
-# Be With YOU(GDSC X GIST Hackathon) Project Server
+# Be With YOU(GDSC X GIST Hackathon - 3rd Prize) Project Server
 
 <p align= "center">
 <img src="https://github.com/wonsikjang/BeWithYou/assets/45943068/59d8f0a2-c1cf-415b-a614-d292bb9800eb">
